@@ -1,0 +1,75 @@
+.project-wrapper {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    border-radius: 10px;
+    transition: background-color .3s;
+}
+
+.project-wrapper p {
+    color: rgba(0, 0, 0, .5);
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.project-wrapper:hover {
+    cursor: pointer;
+    background-color: rgba(168, 168, 168, .2);
+    transition: background-color .3s;
+}
+
+.icon-project {
+    margin-left: 10px;
+    color: rgba(0, 0, 0, .5);
+}
+
+.icon-project:hover {
+    color: rgba(0, 0, 0, .8);
+}
+
+.icon-project-wrapper {
+    transform: translateZ(-80px);
+    opacity: 0;
+    transition: .3s .5s;
+}
+
+.sidebar-wrapper:hover .icon-project-wrapper {
+    transform: translateZ(0);
+    opacity: 1;
+    transition: .3s;
+}
+
+.rotate-right {
+    transform: rotate(-90deg);
+    transition: .5s;
+}
+
+.project-list {
+    transform: scaleY(0);
+    transform-origin: 100% 0%;
+    transition: .3s ease-in;
+}
+
+.show-project-list {
+    transform: scaleY(1);
+    transform-origin: 100% 0%;
+    transition: .3s ease-out;
+}
+
+
+/* animation */
+
+  
+/* ICON PROJECT */
+
+@keyframes scale-up-center {
+0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+}
+100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+}
+}
