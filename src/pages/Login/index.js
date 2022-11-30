@@ -2,12 +2,19 @@ import { faArrowRightToBracket } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { redirect, useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
 import loginImg from "../../assets/login.png";
+import {
+	ERR_MESSAGE,
+	SUCCESS_LOGIN,
+	TOAST_PARAMS,
+	TOAST_TYPE,
+	VALID_EMAIL_REGEX,
+} from "../../constants/Login";
 import { signIn } from "../../utils/firebaseFunc";
 import "./index.css";
 
 // RECOIL
-import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRecoilState } from "recoil";
 import { atomUser } from "../../atoms/user";
@@ -27,26 +34,33 @@ const Login = () => {
 		setData({ ...data, [type]: value });
 	};
 
-	const renderToast = (message) => {
-		toast.error(message, {
-			position: "top-center",
-			autoClose: 5000,
-			hideProgressBar: false,
-			closeOnClick: false,
-			pauseOnHover: false,
-			draggable: false,
-			progress: undefined,
-			theme: "light",
-		});
+	const renderToast = (type, message) => {
+		switch (type) {
+			case TOAST_TYPE.ERR:
+				toast.error(message, TOAST_PARAMS);
+				break;
+			case TOAST_TYPE.SUCCESS:
+				toast.success(message, TOAST_PARAMS);
+				break;
+			default:
+				break;
+		}
 	};
 
-	const handleSubmit = () => {
-		signIn(data.email, data.password)
-			.then((data) => {
-				setUser(data);
-				navigate("/dashboard");
-			})
-			.catch((error) => renderToast(error.code));
+	const handleSubmit = (e) => {
+		e.preventDefault();
+
+		if (data.email.match(VALID_EMAIL_REGEX)) {
+			signIn(data.email, data.password)
+				.then((data) => {
+					setUser(data);
+					navigate("/dashboard");
+					renderToast(TOAST_TYPE.SUCCESS, SUCCESS_LOGIN);
+				})
+				.catch((error) => renderToast(TOAST_TYPE.ERR, error.code));
+		} else {
+			renderToast(TOAST_TYPE.ERR, ERR_MESSAGE.INVALID_EMAIL_FORMAT);
+		}
 	};
 
 	console.log(user);
@@ -59,45 +73,46 @@ const Login = () => {
 				</div>
 				<div className="login-form-wrapper">
 					<h2>To-Do</h2>
-					<div className="login-form">
-						<div className="input-form">
-							<input
-								placeholder="Email"
-								name="email"
-								onChange={handleInput}
-								value={data.email}
-							/>
+					<form onSubmit={handleSubmit}>
+						<div className="login-form">
+							<div className="input-form">
+								<input
+									type="email"
+									placeholder="Email"
+									name="email"
+									onChange={handleInput}
+									value={data.email}
+									required
+								/>
+							</div>
+							<div className="input-form">
+								<input
+									type="password"
+									placeholder="Password"
+									name="password"
+									onChange={handleInput}
+									value={data.password}
+									required
+								/>
+							</div>
+							<div>
+								<button type="submit" className="login-form-button">
+									<div className="mx-3 flex flex-row gap-4 justify-between items-center">
+										<div>Login</div>
+										<FontAwesomeIcon
+											icon={faArrowRightToBracket}
+											className="text-white text-lg"
+										/>
+									</div>
+								</button>
+							</div>
 						</div>
-						<div className="input-form">
-							<input
-								type="password"
-								placeholder="Password"
-								name="password"
-								onChange={handleInput}
-								value={data.password}
-							/>
-						</div>
-						<div>
-							<button
-								type="submit"
-								className="login-form-button"
-								onClick={handleSubmit}
-							>
-								<div className="mx-3 flex flex-row gap-4 justify-between items-center">
-									<div>Login</div>
-									<FontAwesomeIcon
-										icon={faArrowRightToBracket}
-										className="text-white text-lg"
-									/>
-								</div>
-							</button>
-						</div>
-					</div>
+					</form>
 				</div>
 			</div>
 			<ToastContainer
 				position="top-center"
-				autoClose={5000}
+				autoClose={2000}
 				hideProgressBar={false}
 				newestOnTop={false}
 				closeOnClick={false}
