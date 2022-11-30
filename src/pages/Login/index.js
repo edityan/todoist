@@ -1,3 +1,5 @@
+import { faArrowRightToBracket } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { redirect, useNavigate } from "react-router-dom";
 import loginImg from "../../assets/login.png";
@@ -81,7 +83,13 @@ const Login = () => {
 								className="login-form-button"
 								onClick={handleSubmit}
 							>
-								Login
+								<div className="mx-3 flex flex-row gap-4 justify-between items-center">
+									<div>Login</div>
+									<FontAwesomeIcon
+										icon={faArrowRightToBracket}
+										className="text-white text-lg"
+									/>
+								</div>
 							</button>
 						</div>
 					</div>
