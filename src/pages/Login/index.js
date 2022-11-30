@@ -1,6 +1,6 @@
 import { faArrowRightToBracket } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
+import React from "react";
 import { redirect, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import loginImg from "../../assets/login.png";
@@ -16,22 +16,20 @@ import "./index.css";
 
 // RECOIL
 import "react-toastify/dist/ReactToastify.css";
-import { useRecoilState } from "recoil";
-import { atomUser } from "../../atoms/user";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { atomLoginInput, atomUser, emailInput } from "../../atoms/user";
 
 const Login = () => {
 	// RECOIL STATE
 	const [user, setUser] = useRecoilState(atomUser);
-	// STATE
-	const [data, setData] = useState({ email: "", password: "" });
+	const [loginInput, setLoginInput] = useRecoilState(atomLoginInput);
 
 	const navigate = useNavigate();
 
 	const handleInput = (e) => {
 		let type = e.target.name;
 		let value = e.target.value;
-
-		setData({ ...data, [type]: value });
+		setLoginInput({ ...loginInput, [type]: value });
 	};
 
 	const renderToast = (type, message) => {
@@ -50,8 +48,8 @@ const Login = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
-		if (data.email.match(VALID_EMAIL_REGEX)) {
-			signIn(data.email, data.password)
+		if (loginInput.email.match(VALID_EMAIL_REGEX)) {
+			signIn(loginInput.email, loginInput.password)
 				.then((data) => {
 					setUser(data);
 					renderToast(TOAST_TYPE.SUCCESS, SUCCESS_MESSAGE.SUCCESS_LOGIN);
@@ -64,8 +62,6 @@ const Login = () => {
 			renderToast(TOAST_TYPE.ERR, ERR_MESSAGE.INVALID_EMAIL_FORMAT);
 		}
 	};
-
-	console.log(user);
 
 	return (
 		<>
@@ -89,7 +85,7 @@ const Login = () => {
 										placeholder="Email"
 										name="email"
 										onChange={handleInput}
-										value={data.email}
+										value={loginInput.email}
 										required
 									/>
 								</div>
@@ -99,7 +95,7 @@ const Login = () => {
 										placeholder="Password"
 										name="password"
 										onChange={handleInput}
-										value={data.password}
+										value={loginInput.password}
 										required
 									/>
 								</div>
