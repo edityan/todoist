@@ -18,6 +18,12 @@ const Project = () => {
 			label: "Upcomings",
 			count: 5,
 		},
+		...Array(10)
+			.fill(0)
+			.map((_) => ({
+				label: "test",
+				count: 10,
+			})),
 	];
 
 	const [showMenuList, setShowMenuList] = useState(false);
