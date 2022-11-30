@@ -86,8 +86,7 @@ const Login = () => {
 								className="login-form-button"
 								onClick={handleSubmit}
 							>
-								{" "}
-								Log in{" "}
+								Login
 							</button>
 						</div>
 					</div>
