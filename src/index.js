@@ -8,6 +8,7 @@ import {
 import { RecoilRoot } from "recoil";
 import "./index.css";
 import Home from "./pages/Home";
+import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 
 const router = createBrowserRouter([
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
 	},
 	{
 		path: "/",
+		element: <Landing />,
+	},
+	{
+		path: "/user",
 		element: <Home />,
 	},
 	{
