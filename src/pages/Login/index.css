@@ -27,6 +27,8 @@
 .login-form-wrapper h2 {
 	color: #2596be;
 	margin-bottom: 20px;
+	font-size: 2rem;
+	font-weight: 900;
 }
 
 .login-form-button {
