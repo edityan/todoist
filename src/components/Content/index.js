@@ -1,12 +1,8 @@
-import React from 'react'
-import './index.css'
+import React from "react";
+import "./index.css";
 
 const Content = () => {
-  return (
-    <div className='content-wrapper'>
-      Content
-    </div>
-  )
-}
+	return <div className="content-wrapper">Content</div>;
+};
 
-export default Content
+export default Content;
