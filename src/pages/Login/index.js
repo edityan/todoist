@@ -16,11 +16,10 @@ import "./index.css";
 
 // RECOIL
 import "react-toastify/dist/ReactToastify.css";
-import { useRecoilState, useRecoilValue } from "recoil";
-import { atomLoginInput, atomUser, emailInput } from "../../atoms/user";
+import { useRecoilState } from "recoil";
+import { atomLoginInput, atomUser } from "../../atoms/user";
 
 const Login = () => {
-	// RECOIL STATE
 	const [user, setUser] = useRecoilState(atomUser);
 	const [loginInput, setLoginInput] = useRecoilState(atomLoginInput);
 
