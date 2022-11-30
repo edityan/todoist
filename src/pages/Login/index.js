@@ -6,7 +6,7 @@ import { toast, ToastContainer } from "react-toastify";
 import loginImg from "../../assets/login.png";
 import {
 	ERR_MESSAGE,
-	SUCCESS_LOGIN,
+	SUCCESS_MESSAGE,
 	TOAST_PARAMS,
 	TOAST_TYPE,
 	VALID_EMAIL_REGEX,
@@ -54,10 +54,12 @@ const Login = () => {
 			signIn(data.email, data.password)
 				.then((data) => {
 					setUser(data);
-					navigate("/dashboard");
-					renderToast(TOAST_TYPE.SUCCESS, SUCCESS_LOGIN);
+					renderToast(TOAST_TYPE.SUCCESS, SUCCESS_MESSAGE.SUCCESS_LOGIN);
+					setTimeout(() => {
+						navigate("/dashboard");
+					}, 3000);
 				})
-				.catch((error) => renderToast(TOAST_TYPE.ERR, error.code));
+				.catch((error) => renderToast(TOAST_TYPE.ERR, ERR_MESSAGE[error.code]));
 		} else {
 			renderToast(TOAST_TYPE.ERR, ERR_MESSAGE.INVALID_EMAIL_FORMAT);
 		}
@@ -66,48 +68,55 @@ const Login = () => {
 	console.log(user);
 
 	return (
-		<div className="login-container">
-			<div className="login-wrapper">
-				<div className="login-image-wrapper">
-					<img src={loginImg} width="300" className="login-image" alt="login" />
-				</div>
-				<div className="login-form-wrapper">
-					<h2>To-Do</h2>
-					<form onSubmit={handleSubmit}>
-						<div className="login-form">
-							<div className="input-form">
-								<input
-									type="email"
-									placeholder="Email"
-									name="email"
-									onChange={handleInput}
-									value={data.email}
-									required
-								/>
+		<>
+			<div className="login-container">
+				<div className="login-wrapper">
+					<div className="login-image-wrapper">
+						<img
+							src={loginImg}
+							width="300"
+							className="login-image"
+							alt="login"
+						/>
+					</div>
+					<div className="login-form-wrapper">
+						<h2>To-Do</h2>
+						<form onSubmit={handleSubmit}>
+							<div className="login-form">
+								<div className="input-form">
+									<input
+										type="email"
+										placeholder="Email"
+										name="email"
+										onChange={handleInput}
+										value={data.email}
+										required
+									/>
+								</div>
+								<div className="input-form">
+									<input
+										type="password"
+										placeholder="Password"
+										name="password"
+										onChange={handleInput}
+										value={data.password}
+										required
+									/>
+								</div>
+								<div>
+									<button type="submit" className="login-form-button">
+										<div className="mx-3 flex flex-row gap-4 justify-between items-center">
+											<div>Login</div>
+											<FontAwesomeIcon
+												icon={faArrowRightToBracket}
+												className="text-white text-lg"
+											/>
+										</div>
+									</button>
+								</div>
 							</div>
-							<div className="input-form">
-								<input
-									type="password"
-									placeholder="Password"
-									name="password"
-									onChange={handleInput}
-									value={data.password}
-									required
-								/>
-							</div>
-							<div>
-								<button type="submit" className="login-form-button">
-									<div className="mx-3 flex flex-row gap-4 justify-between items-center">
-										<div>Login</div>
-										<FontAwesomeIcon
-											icon={faArrowRightToBracket}
-											className="text-white text-lg"
-										/>
-									</div>
-								</button>
-							</div>
-						</div>
-					</form>
+						</form>
+					</div>
 				</div>
 			</div>
 			<ToastContainer
@@ -122,7 +131,7 @@ const Login = () => {
 				pauseOnHover={false}
 				theme="light"
 			/>
-		</div>
+		</>
 	);
 };
 
