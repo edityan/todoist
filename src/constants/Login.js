@@ -2,7 +2,7 @@
 export const VALID_EMAIL_REGEX = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
 export const SUCCESS_LOGIN = "SUCCESS_LOGIN";
 export const SUCCESS_MESSAGE = {
-	SUCCESS_LOGIN: "Login success!",
+	SUCCESS_LOGIN: "Login success, redirecting...",
 };
 export const ERR_MESSAGE = {
 	INVALID_EMAIL_FORMAT: "Invalid email format!",
