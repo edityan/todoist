@@ -42,7 +42,7 @@ const Login = () => {
 		signIn(data.email, data.password)
 			.then((data) => {
 				setUser(data);
-				navigate("/");
+				navigate("/dashboard");
 			})
 			.catch((error) => renderToast(error.code));
 	};
