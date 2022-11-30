@@ -52,13 +52,8 @@ const Login = () => {
 	return (
 		<div className="login-container">
 			<div className="login-wrapper">
-				<div className="login-image">
-					<img
-						src={loginImg}
-						width="300"
-						style={{ position: "relative" }}
-						alt="login"
-					/>
+				<div className="login-image-wrapper">
+					<img src={loginImg} width="300" className="login-image" alt="login" />
 				</div>
 				<div className="login-form-wrapper">
 					<h2>To-Do</h2>
@@ -104,9 +99,6 @@ const Login = () => {
 				pauseOnHover={false}
 				theme="light"
 			/>
-			{/* <div className="footer">
-            <a href="" target="_blank" rel="noopener noreferrer" className="footerLink">Powered by React</a>
-        </div> */}
 		</div>
 	);
 };
