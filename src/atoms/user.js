@@ -1,4 +1,4 @@
-import { atom, selector } from "recoil";
+import { atom } from "recoil";
 
 export const atomUser = atom({
 	key: "atomUser",
@@ -10,12 +10,5 @@ export const atomLoginInput = atom({
 	default: {
 		email: "",
 		password: "",
-	},
-});
-
-export const emailInput = selector({
-	key: "emailInput",
-	get: ({ get }) => {
-		return get(atomLoginInput).email;
 	},
 });
