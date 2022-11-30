@@ -15,7 +15,7 @@ const Project = () => {
 			count: 5,
 		},
 		{
-			label: "Upcomingss",
+			label: "Upcomings",
 			count: 5,
 		},
 	];
