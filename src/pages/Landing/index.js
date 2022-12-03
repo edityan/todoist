@@ -18,7 +18,7 @@ const Navbar = () => {
 				<nav className="max-h-screen top-0 left-0 relative bg-transparent z-[9999]">
 					<div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-4 gap-4">
 						<div className="flex items-center justify-between py-3 md:py-5 md:block">
-							<div className="text-3xl rounded-full font-black cursor-pointer">
+							<div className="flex flex-row gap-2 items-center text-3xl rounded-full font-black cursor-pointer">
 								<FontAwesomeIcon
 									icon={faCalendarCheck}
 									className="text-[#2596be]"
