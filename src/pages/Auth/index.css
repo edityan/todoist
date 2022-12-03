@@ -12,9 +12,11 @@
 	flex-direction: column;
 	min-width: 40%;
 	text-align: center;
+	margin-top: -5rem;
 }
 
 .login-image-wrapper {
+	z-index: 5;
 	width: 20rem;
 	margin-left: auto;
 	margin-right: auto;
@@ -43,10 +45,16 @@
 	color: aliceblue;
 	border: none;
 	border-radius: 10px;
+	transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .login-form-button:hover {
 	cursor: pointer;
+	transform: scale(1.005);
+}
+
+.login-form-button:active {
+	box-shadow: 0 0 0 2px #2596be;
 }
 
 .input-form {
@@ -85,5 +93,15 @@
 	.login-wrapper {
 		min-width: 70%;
 		max-width: 70%;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.login-wrapper {
+		min-width: 90%;
+		max-width: 90%;
+	}
+	.login-image-wrapper {
+		width: 75%;
 	}
 }

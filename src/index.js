@@ -7,11 +7,16 @@ import {
 } from "react-router-dom";
 import { RecoilRoot } from "recoil";
 import "./index.css";
+import Login from "./pages/Auth/Login";
+import SignUp from "./pages/Auth/SignUp";
 import Home from "./pages/Home";
 import Landing from "./pages/Landing";
-import Login from "./pages/Login";
 
 const router = createBrowserRouter([
+	{
+		path: "/sign-up",
+		element: <SignUp />,
+	},
 	{
 		path: "/login",
 		element: <Login />,
