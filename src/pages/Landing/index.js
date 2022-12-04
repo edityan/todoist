@@ -94,8 +94,6 @@ const Background = () => {
 			<div className="text-center text-xl">
 				Become focused, organized,
 				<span className="block md:inline">and calm with Todoist.</span>
-				<span className="block">The world&apos;s #1 task manager</span>
-				<span className="block md:hidden">and to-do list app.</span>
 			</div>
 			<button className="bg-[#2596be] py-2 px-4 rounded-md text-white">
 				<Link to="/auth/register">Start for free</Link>
