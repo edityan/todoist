@@ -8,17 +8,17 @@ import {
 import { RecoilRoot } from "recoil";
 import "./index.css";
 import Login from "./pages/Auth/Login";
-import SignUp from "./pages/Auth/SignUp";
+import Register from "./pages/Auth/Register";
 import Home from "./pages/Home";
 import Landing from "./pages/Landing";
 
 const router = createBrowserRouter([
 	{
-		path: "/sign-up",
-		element: <SignUp />,
+		path: "/auth/register",
+		element: <Register />,
 	},
 	{
-		path: "/login",
+		path: "/auth/login",
 		element: <Login />,
 	},
 	{

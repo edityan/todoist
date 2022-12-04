@@ -26,7 +26,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useRecoilState } from "recoil";
 import { atomLoginInput, atomUser } from "../../atoms/user";
 
-const SignUp = () => {
+const Register = () => {
 	const navigate = useNavigate();
 
 	const [user, setUser] = useRecoilState(atomUser);
@@ -140,7 +140,7 @@ const SignUp = () => {
 					<div className="text-sm text-center opacity-[0.88] font-normal">
 						Already signed up?&nbsp;
 						<span className="underline cursor-pointer">
-							<Link to="/login">Go to login</Link>
+							<Link to="/auth/login">Go to login</Link>
 						</span>
 					</div>
 				</div>
@@ -170,4 +170,4 @@ const SignUp = () => {
 	);
 };
 
-export default SignUp;
+export default Register;

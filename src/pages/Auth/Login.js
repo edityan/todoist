@@ -145,7 +145,7 @@ const SignUp = () => {
 					<div className="text-sm text-center opacity-[0.88] font-normal">
 						Don&apos;t have an account?&nbsp;
 						<span className="underline cursor-pointer">
-							<Link to="/sign-up">Sign up</Link>
+							<Link to="/auth/register">Sign up</Link>
 						</span>
 					</div>
 				</div>
