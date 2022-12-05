@@ -1,11 +1,12 @@
 import { faChevronLeft, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
-import ProjectList from "../ProjectList";
+import { ProjectType } from "../../types/Project";
+import ProjectList from "../ProjectList/index";
 import "./index.css";
 
 const Project = () => {
-	const projects = [
+	const projects: Array<ProjectType> = [
 		{
 			label: "Inbox",
 			count: 2,

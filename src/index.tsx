@@ -9,8 +9,8 @@ import { RecoilRoot } from "recoil";
 import "./index.css";
 import Login from "./pages/Auth/Login";
 import Register from "./pages/Auth/Register";
-import Home from "./pages/Home";
-import Landing from "./pages/Landing";
+import Home from "./pages/Home/index";
+import Landing from "./pages/Landing/index";
 
 const router = createBrowserRouter([
 	{
@@ -35,7 +35,8 @@ const router = createBrowserRouter([
 	},
 ]);
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const rootId = document.getElementById("root") as HTMLElement;
+const root = ReactDOM.createRoot(rootId);
 root.render(
 	<React.StrictMode>
 		<RecoilRoot>

@@ -1,6 +1,11 @@
 import React from "react";
 
-export default function FormInput({ title, children }) {
+interface FormInputProps {
+	title: string;
+	children: React.ReactNode;
+}
+
+export default function FormInput({ title, children }: FormInputProps) {
 	return (
 		<div className="w-full">
 			<div className="border-[1px] rounded-lg p-2 pb-1 overflow-clip">

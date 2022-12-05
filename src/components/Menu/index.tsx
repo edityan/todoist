@@ -21,7 +21,7 @@ const Menu = () => {
 
 	const [selected, setSelected] = useState(0);
 
-	const handleClick = (index) => {
+	const handleClick = (index: number) => {
 		setSelected(index);
 	};
 
