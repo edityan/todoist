@@ -1,15 +1,14 @@
-import React from "react";
-import Menu from "../Menu";
-import Project from "../Project";
-import "./index.css";
+import React from 'react';
+import Menu from '../Menu';
+import Project from '../Project';
 
 const Sidebar = () => {
-	return (
-		<div className="sidebar-wrapper">
-			<Menu />
-			<Project />
-		</div>
-	);
+    return (
+        <div className="p-5 w-72 group/sidebar">
+            <Menu />
+            <Project />
+        </div>
+    );
 };
 
 export default Sidebar;
