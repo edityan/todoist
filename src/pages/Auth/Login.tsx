@@ -1,7 +1,7 @@
 import { faCalendarCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import { Link, redirect, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import loginImg from "../../assets/login.png";
 import {
@@ -37,13 +37,13 @@ const SignUp = () => {
 		setIsShowPassword((prevIsShowPassowrd) => !prevIsShowPassowrd);
 	};
 
-	const handleInputChange = (e) => {
+	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const type = e.target.name;
 		const value = e.target.value;
 		setLoginInput((prevLoginInput) => ({ ...prevLoginInput, [type]: value }));
 	};
 
-	const renderToast = (type, message) => {
+	const renderToast = (type: string, message: string) => {
 		switch (type) {
 			case TOAST_TYPE.ERR:
 				toast.error(message, TOAST_PARAMS);
@@ -56,7 +56,7 @@ const SignUp = () => {
 		}
 	};
 
-	const handleSubmit = (e) => {
+	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
 
 		if (loginInput.email.match(VALID_EMAIL_REGEX)) {
@@ -86,7 +86,7 @@ const SignUp = () => {
 					</Link>
 				</div>
 				<div className="grid gap-4">
-					<div className="font-bold text-4xl">Sign up</div>
+					<div className="font-bold text-4xl">Login</div>
 					<div className="flex flex-col items-start justify-center mt-5 gap-3">
 						<ThirdPartyLogin
 							icon={<GoogleIcon />}
@@ -134,13 +134,18 @@ const SignUp = () => {
 						className="rounded-lg w-full bg-[#2596be] p-3 text-xl font-bold text-white"
 						onClick={handleSubmit}
 					>
-						Sign up with Email
+						Login
 					</button>
+					<div className="text-sm opacity-[0.88] font-normal">
+						<span className="underline cursor-pointer">
+							Forgot your password?
+						</span>
+					</div>
 					<Divider />
 					<div className="text-sm text-center opacity-[0.88] font-normal">
-						Already signed up?&nbsp;
+						Don&apos;t have an account?&nbsp;
 						<span className="underline cursor-pointer">
-							<Link to="/login">Go to login</Link>
+							<Link to="/auth/register">Sign up</Link>
 						</span>
 					</div>
 				</div>
