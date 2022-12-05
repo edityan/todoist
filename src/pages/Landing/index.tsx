@@ -50,7 +50,7 @@ const Navbar = () => {
 						>
 							<ul className="flex flex-col md:flex-row gap-2 w-full">
 								<li className="text-slate-500 w-full">
-									<Link to="/login">
+									<Link to="/auth/login">
 										<button className="px-4 py-2 bg-[#2596be] w-full text-white rounded-md">
 											<div className="flex flex-row gap-4 justify-center items-center">
 												<FontAwesomeIcon
@@ -63,7 +63,7 @@ const Navbar = () => {
 									</Link>
 								</li>
 								<li className="text-slate-500 w-full">
-									<Link to="/login">
+									<Link to="/auth/register">
 										<button className="px-4 py-2 bg-[#2596be] w-full text-white rounded-md">
 											<div className="flex flex-row gap-4 justify-center items-center">
 												<FontAwesomeIcon
@@ -94,11 +94,9 @@ const Background = () => {
 			<div className="text-center text-xl">
 				Become focused, organized,
 				<span className="block md:inline">and calm with Todoist.</span>
-				<span className="block">The world&apos;s #1 task manager</span>
-				<span className="block md:hidden">and to-do list app.</span>
 			</div>
 			<button className="bg-[#2596be] py-2 px-4 rounded-md text-white">
-				<Link to="/login">Start for free</Link>
+				<Link to="/auth/register">Start for free</Link>
 			</button>
 		</div>
 	);

@@ -8,17 +8,17 @@ import {
 import { RecoilRoot } from "recoil";
 import "./index.css";
 import Login from "./pages/Auth/Login";
-import SignUp from "./pages/Auth/SignUp";
-import Home from "./pages/Home";
-import Landing from "./pages/Landing";
+import Register from "./pages/Auth/Register";
+import Home from "./pages/Home/index";
+import Landing from "./pages/Landing/index";
 
 const router = createBrowserRouter([
 	{
-		path: "/sign-up",
-		element: <SignUp />,
+		path: "/auth/register",
+		element: <Register />,
 	},
 	{
-		path: "/login",
+		path: "/auth/login",
 		element: <Login />,
 	},
 	{
@@ -35,7 +35,8 @@ const router = createBrowserRouter([
 	},
 ]);
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const rootId = document.getElementById("root") as HTMLElement;
+const root = ReactDOM.createRoot(rootId);
 root.render(
 	<React.StrictMode>
 		<RecoilRoot>

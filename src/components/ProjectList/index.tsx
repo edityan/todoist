@@ -1,8 +1,13 @@
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import { ProjectType } from '../../types/Project';
 
-const ProjectList = ({ data }) => {
+interface ProjectListProps {
+    data: ProjectType;
+}
+
+const ProjectList = ({ data }: ProjectListProps) => {
     const { label, count } = data;
 
     return (

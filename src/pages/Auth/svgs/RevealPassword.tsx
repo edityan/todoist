@@ -1,6 +1,12 @@
 import React from "react";
 
-export default function RevealPasswordIcon({ isShowPassword }) {
+interface RevealPasswordIconProps {
+	isShowPassword: boolean;
+}
+
+export default function RevealPasswordIcon({
+	isShowPassword,
+}: RevealPasswordIconProps) {
 	return (
 		<>
 			{isShowPassword ? (
