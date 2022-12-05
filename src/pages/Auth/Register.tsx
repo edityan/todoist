@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { Link, redirect, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
-import loginImg from '../../assets/login.png';
+import { Divider, FormInput, ThirdPartyLogin } from '../../components/Shared';
 import {
     ERR_MESSAGE,
     SUCCESS_MESSAGE,
@@ -11,14 +11,9 @@ import {
     TOAST_TYPE,
     VALID_EMAIL_REGEX,
 } from '../../constants/Login';
+
+import { AppleIcon, FacebookIcon, GoogleIcon, LoginImage, RevealPasswordIcon } from '../../assets';
 import { signIn } from '../../utils/firebaseFunc';
-import Divider from './Divider';
-import FormInput from './FormInput';
-import AppleIcon from './svgs/Apple';
-import FacebookIcon from './svgs/Facebook';
-import GoogleIcon from './svgs/Google';
-import RevealPasswordIcon from './svgs/RevealPassword';
-import ThirdPartyLogin from './ThirdPartyLogin';
 
 // RECOIL
 import 'react-toastify/dist/ReactToastify.css';
@@ -138,7 +133,7 @@ const Register = () => {
             <div className="min-w-[30%] max-w-full pt-20 md:pt-28">
                 <div className="hidden md:block md:w-full md:m-auto">
                     <img
-                        src={loginImg}
+                        src={LoginImage}
                         alt="login"
                         className="w-full m-auto block object-cover object-bottom"
                     />

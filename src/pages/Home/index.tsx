@@ -1,14 +1,13 @@
-import React from "react";
-import Header from "../../components/Header/index";
-import Main from "../../components/Main/index";
+import React from 'react';
+import { Header, Main } from '../../components/Home';
 
 const Home = () => {
-	return (
-		<div style={{ height: "100vh", display: "flex", flexDirection: "column" }}>
-			<Header />
-			<Main />
-		</div>
-	);
+    return (
+        <div style={{ height: '100vh', display: 'flex', flexDirection: 'column' }}>
+            <Header />
+            <Main />
+        </div>
+    );
 };
 
 export default Home;
