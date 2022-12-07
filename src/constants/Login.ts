@@ -65,3 +65,6 @@ export const DONT_HAVE_AN_ACCOUNT = "Don't have an account?";
 export const REDIRECT = {
 	SUCCESS_TIME_OUT: 3000,
 };
+export const SIGN_UP_WITH_EMAIL = "Sign up with email";
+export const ALREADY_SIGNED_UP = "Already signed up?";
+export const GO_TO_LOGIN = "Go to login";
