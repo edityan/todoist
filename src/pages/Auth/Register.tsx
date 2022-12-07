@@ -5,8 +5,21 @@ import { Link, redirect, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import { Divider, FormInput, ThirdPartyLogin } from '../../components/Shared';
 import {
+    ALREADY_SIGNED_UP,
+    AUTOCOMPLETE,
+    CONTINUE_WITH_GOOGLE,
+    EMAIL,
     ERR_MESSAGE,
+    FORM,
+    GO_TO_LOGIN,
+    PASSWORD,
+    PLACEHOLDER,
+    REDIRECT,
+    SIGN_UP,
+    SIGN_UP_WITH_EMAIL,
+    SUBMIT,
     SUCCESS_MESSAGE,
+    TEXT,
     TOAST_PARAMS,
     TOAST_TYPE,
     VALID_EMAIL_REGEX
@@ -61,7 +74,7 @@ const Register = () => {
                     renderToast(TOAST_TYPE.SUCCESS, SUCCESS_MESSAGE.SUCCESS_LOGIN);
                     setTimeout(() => {
                         navigate(PATH_DASHBOARD);
-                    }, 3000);
+                    }, REDIRECT.SUCCESS_TIME_OUT);
                 })
                 .catch((error) => renderToast(TOAST_TYPE.ERR, ERR_MESSAGE[error.code]));
         } else {
@@ -78,36 +91,36 @@ const Register = () => {
                     </Link>
                 </div>
                 <div className="grid gap-4">
-                    <div className="font-bold text-4xl">Sign up</div>
+                    <div className="font-bold text-4xl">{SIGN_UP}</div>
                     <div className="flex flex-col items-start justify-center mt-5 gap-3">
-                        <ThirdPartyLogin icon={<GoogleIcon />} title="Continue with Google" />
+                        <ThirdPartyLogin icon={<GoogleIcon />} title={CONTINUE_WITH_GOOGLE} />
                     </div>
                     <Divider />
-                    <FormInput title="Email">
+                    <FormInput title={FORM.EMAIL}>
                         <input
-                            type="email"
-                            name="email"
+                            type={EMAIL}
+                            name={EMAIL}
                             className="w-full p-0 h-6 font-extralight outline-none"
-                            placeholder="Enter your email..."
-                            autoComplete="email"
+                            placeholder={PLACEHOLDER.EMAIL}
+                            autoComplete={AUTOCOMPLETE.EMAIL}
                             onChange={handleInputChange}
                             value={loginInput.email}
                             required
                         />
                     </FormInput>
-                    <FormInput title="Password">
+                    <FormInput title={FORM.PASSWORD}>
                         <input
-                            type={isShowPassword ? 'text' : 'password'}
-                            name="password"
+                            type={isShowPassword ? TEXT : PASSWORD}
+                            name={PASSWORD}
                             className="w-full p-0 h-6 font-extralight outline-none border-none"
-                            placeholder="Enter your password..."
-                            autoComplete="current-password"
+                            placeholder={PLACEHOLDER.PASSWORD}
+                            autoComplete={AUTOCOMPLETE.PASSWORD}
                             onChange={handleInputChange}
                             value={loginInput.password}
                             required
                         />
                         <button
-                            type="submit"
+                            type={SUBMIT}
                             className="mx-0 my-1 rounded-[3px] cursor-pointer"
                             onClick={handleIsShowPassword}
                         >
@@ -118,13 +131,13 @@ const Register = () => {
                         className="rounded-lg w-full bg-[#2596be] p-3 text-xl font-bold text-white"
                         onClick={handleSubmit}
                     >
-                        Sign up with Email
+                       {SIGN_UP_WITH_EMAIL} 
                     </button>
                     <Divider />
                     <div className="text-sm text-center opacity-[0.88] font-normal">
-                        Already signed up?&nbsp;
+                        {ALREADY_SIGNED_UP}
                         <span className="underline cursor-pointer">
-                            <Link to={PATH_LOGIN}>Go to login</Link>
+                            <Link to={PATH_LOGIN}>{GO_TO_LOGIN}</Link>
                         </span>
                     </div>
                 </div>
