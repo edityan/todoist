@@ -9,7 +9,7 @@ import {
     SUCCESS_MESSAGE,
     TOAST_PARAMS,
     TOAST_TYPE,
-    VALID_EMAIL_REGEX,
+    VALID_EMAIL_REGEX
 } from '../../constants/Login';
 
 import { GoogleIcon, LoginImage, RevealPasswordIcon } from '../../assets';
@@ -19,6 +19,7 @@ import { signIn } from '../../utils/firebaseFunc';
 import 'react-toastify/dist/ReactToastify.css';
 import { useRecoilState } from 'recoil';
 import { atomLoginInput, atomUser } from '../../atoms/user';
+import { PATH_DASHBOARD, PATH_HOME, PATH_LOGIN } from '../../constants/Path';
 
 const Register = () => {
     const navigate = useNavigate();
@@ -59,7 +60,7 @@ const Register = () => {
                     setUser(data);
                     renderToast(TOAST_TYPE.SUCCESS, SUCCESS_MESSAGE.SUCCESS_LOGIN);
                     setTimeout(() => {
-                        navigate('/dashboard');
+                        navigate(PATH_DASHBOARD);
                     }, 3000);
                 })
                 .catch((error) => renderToast(TOAST_TYPE.ERR, ERR_MESSAGE[error.code]));
@@ -72,7 +73,7 @@ const Register = () => {
         <div className="p-6 overflow-auto max-w-7xl w-full h-full m-auto flex flex-col md:flex-row justify-center">
             <div className="w-full">
                 <div className="text-3xl pb-28">
-                    <Link to="/">
+                    <Link to={PATH_HOME}>
                         <FontAwesomeIcon icon={faCalendarCheck} className="text-[#2596be]" />
                     </Link>
                 </div>
@@ -123,7 +124,7 @@ const Register = () => {
                     <div className="text-sm text-center opacity-[0.88] font-normal">
                         Already signed up?&nbsp;
                         <span className="underline cursor-pointer">
-                            <Link to="/auth/login">Go to login</Link>
+                            <Link to={PATH_LOGIN}>Go to login</Link>
                         </span>
                     </div>
                 </div>

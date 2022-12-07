@@ -3,9 +3,10 @@ import ReactDOM from "react-dom/client";
 import {
 	createBrowserRouter,
 	Navigate,
-	RouterProvider,
+	RouterProvider
 } from "react-router-dom";
 import { RecoilRoot } from "recoil";
+import { PATH_BASE, PATH_DASHBOARD, PATH_HOME, PATH_LOGIN, PATH_REGISTER } from "./constants/Path";
 import "./index.css";
 import Login from "./pages/Auth/Login";
 import Register from "./pages/Auth/Register";
@@ -14,24 +15,24 @@ import Landing from "./pages/Landing/index";
 
 const router = createBrowserRouter([
 	{
-		path: "/auth/register",
+		path: PATH_REGISTER,
 		element: <Register />,
 	},
 	{
-		path: "/auth/login",
+		path: PATH_LOGIN,
 		element: <Login />,
 	},
 	{
-		path: "/",
+		path: PATH_HOME,
 		element: <Landing />,
 	},
 	{
-		path: "/dashboard",
+		path: PATH_DASHBOARD,
 		element: <Home />,
 	},
 	{
-		path: "*",
-		element: <Navigate to="/" />,
+		path: PATH_BASE,
+		element: <Navigate to={PATH_HOME} />,
 	},
 ]);
 
