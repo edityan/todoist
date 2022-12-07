@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
-import { AppleIcon, FacebookIcon, GoogleIcon, LoginImage, RevealPasswordIcon } from '../../assets';
+import { GoogleIcon, LoginImage, RevealPasswordIcon } from '../../assets';
 import { Divider, FormInput, ThirdPartyLogin } from '../../components/Shared';
 import {
     ERR_MESSAGE,
