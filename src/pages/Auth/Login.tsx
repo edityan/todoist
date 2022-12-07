@@ -80,8 +80,6 @@ const SignUp = () => {
                     <div className="font-bold text-4xl">Login</div>
                     <div className="flex flex-col items-start justify-center mt-5 gap-3">
                         <ThirdPartyLogin icon={<GoogleIcon />} title="Continue with Google" />
-                        <ThirdPartyLogin icon={<FacebookIcon />} title="Continue with Facebook" />
-                        <ThirdPartyLogin icon={<AppleIcon />} title="Continue with Apple" />
                     </div>
                     <Divider />
                     <FormInput title="Email">
