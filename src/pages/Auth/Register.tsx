@@ -23,7 +23,7 @@ import {
 	TOAST_PARAMS,
 	TOAST_TYPE,
 	VALID_EMAIL_REGEX,
-} from "../../constants/FormValidation";
+} from "../../constants/Auth";
 
 import { GoogleIcon, LoginImage, RevealPasswordIcon } from "../../assets";
 import { signIn } from "../../utils/firebaseFunc";

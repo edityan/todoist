@@ -24,7 +24,7 @@ import {
 	TOAST_PARAMS,
 	TOAST_TYPE,
 	VALID_EMAIL_REGEX,
-} from "../../constants/FormValidation";
+} from "../../constants/Auth";
 import { signIn } from "../../utils/firebaseFunc";
 
 // RECOIL
